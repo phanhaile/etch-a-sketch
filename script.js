@@ -1,5 +1,24 @@
 const container = document.querySelector("#container");
+const button = document.querySelector("#resize-btn");
 
-const square = document.createElement("div");
+function createGrid(size) {
+    for (let i = 0; i < size * size; i++) {
+        const square = document.createElement("div");
 
-container.appendChild(square);
+        square.addEventListener("mouseover", () => {
+            square.style.backgroundColor = "red";
+        });
+
+        container.appendChild(square);
+    }
+}
+
+createGrid(16);
+
+button.addEventListener("click", () => {
+    let size = prompt("Enter a grid size:");
+
+    container.innerHTML = "";
+
+    console.log("Grid cleared");
+});
